@@ -1,4 +1,5 @@
 #include <openssl/ssl.h>
+#include <openssl/x509.h>
 
 void rust_SSL_clone(SSL *ssl) {
     CRYPTO_add(&ssl->references, 1, CRYPTO_LOCK_SSL);
@@ -10,8 +11,4 @@ void rust_SSL_CTX_clone(SSL_CTX *ctx) {
 
 void rust_EVP_PKEY_clone(EVP_PKEY *pkey) {
     CRYPTO_add(&pkey->references,1,CRYPTO_LOCK_EVP_PKEY);
-}
-
-void rust_X509_clone(X509 *x509) {
-    CRYPTO_add(&x509->references,1,CRYPTO_LOCK_X509);
 }

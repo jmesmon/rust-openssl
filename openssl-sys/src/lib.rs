@@ -680,6 +680,7 @@ extern "C" {
 
     pub fn X509_add_ext(x: *mut X509, ext: *mut X509_EXTENSION, loc: c_int) -> c_int;
     pub fn X509_digest(x: *mut X509, digest: *const EVP_MD, buf: *mut c_char, len: *mut c_uint) -> c_int;
+    pub fn X509_up_ref(x: *mut X509);
     pub fn X509_free(x: *mut X509);
     pub fn X509_REQ_free(x: *mut X509_REQ);
     pub fn X509_get_serialNumber(x: *mut X509) -> *mut ASN1_INTEGER;
